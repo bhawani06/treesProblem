@@ -13,12 +13,12 @@ public class InsertInTree {
 		TreeNode a4 = new TreeNode(5);
 		TreeNode a5 = new TreeNode(6);
 		TreeNode a6 = new TreeNode(7);
-		root.Left = a1;
-		root.Right = a2;
-		a1.Left = a3;
-		a1.Right = a4;
-		a2.Left = a5;
-		a2.Right = a6;
+		root.left = a1;
+		root.right = a2;
+		a1.left = a3;
+		a1.right = a4;
+		a2.left = a5;
+		a2.right = a6;
 
 		//int max = findMaxInTree(root);
 		PrintTree_LevelOrder(root);
@@ -29,13 +29,13 @@ public class InsertInTree {
 	}
 	
 
-	private static TreeNode insertInTreeRecursive(TreeNode root, int data) 
+	private static TreeNode insertInTreeRecursive(TreeNode root, int val) 
 	{
 		if(root==null)
-		{	root = new TreeNode(data);
+		{	root = new TreeNode(val);
 			return root;
 		}
-		return insertInTreeRecursive(root.Left, data);
+		return insertInTreeRecursive(root.left, val);
 	}
 
 
@@ -48,14 +48,14 @@ public class InsertInTree {
 		while(! q.isEmpty())
 		{
 			TreeNode tmp= q.remove();
-			System.out.println(tmp.data);
-			if(tmp.Left != null)
+			System.out.println(tmp.val);
+			if(tmp.left != null)
 			{
-				q.add(tmp.Left);
+				q.add(tmp.left);
 			}
-			if(tmp.Right!=null)
+			if(tmp.right!=null)
 			{
-				q.add(tmp.Right);
+				q.add(tmp.right);
 			}
 		}
 	}

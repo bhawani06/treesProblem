@@ -12,17 +12,17 @@ public class LCA {
 		TreeNode a5 = new TreeNode(6);
 		TreeNode a6 = new TreeNode(7);
 		TreeNode a7 = new TreeNode(8);
-		root.Left = a1;
-		root.Right = a2;
-		a1.Left = a3;
-		a1.Right = a4;
-		a2.Left = a5;
-		a2.Right = a6;
-		a3.Right = a7;
+		root.left = a1;
+		root.right = a2;
+		a1.left = a3;
+		a1.right = a4;
+		a2.left = a5;
+		a2.right = a6;
+		a3.right = a7;
 		
 		TreeNode lca = lca(root,a7,a6);
 		
-		System.out.println(lca.data);
+		System.out.println(lca.val);
 	}
 
 	private static TreeNode lca(TreeNode root, TreeNode p, TreeNode q) {
@@ -32,17 +32,17 @@ public class LCA {
 			return null;
 		}
 		
-		if(root.data == p.data || root.data ==q.data)
+		if(root.val == p.val || root.val ==q.val)
 			return root;
-		TreeNode isLeft = lca(root.Left,p,q);
-		TreeNode isRight = lca(root.Right,p,q);
+		TreeNode isleft = lca(root.left,p,q);
+		TreeNode isright = lca(root.right,p,q);
 		
-		if(isLeft != null && isRight != null)
+		if(isleft != null && isright != null)
 			return root;
-		if(isLeft != null)
-			return isLeft;
-		if(isRight != null)
-			return isRight;
+		if(isleft != null)
+			return isleft;
+		if(isright != null)
+			return isright;
 		return null;
 	}
 }

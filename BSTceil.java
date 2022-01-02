@@ -8,11 +8,11 @@ public class BSTceil {
 	public static void main(String[] args) {
 
 		TreeNode root = new TreeNode(25);
-	        root.Left = new TreeNode(12);
-	        root.Right = new TreeNode(36);
-	        root.Left.Left = new TreeNode(10);
-	        root.Left.Right = new TreeNode(15);
-	        root.Right.Left = new TreeNode(30);
+	        root.left = new TreeNode(12);
+	        root.right = new TreeNode(36);
+	        root.left.left = new TreeNode(10);
+	        root.left.right = new TreeNode(15);
+	        root.right.left = new TreeNode(30);
 
 			int c = Ceil(root,16);
 			System.out.println(c);
@@ -29,21 +29,21 @@ public class BSTceil {
 	        }
 	 
 	        // We found equal key
-	        if (node.data == input) {
-	            return node.data;
+	        if (node.val == input) {
+	            return node.val;
 	        }
 	 
 	        // If root's key is smaller,
 	        // ceil must be in right subtree
-	        if (node.data < input) {
-	            return Ceil(node.Right, input);
+	        if (node.val < input) {
+	            return Ceil(node.right, input);
 	        }
 	 
 	        // Else, either left subtree or root
 	        // has the ceil value
-	        int ceil = Ceil(node.Left, input);
+	        int ceil = Ceil(node.left, input);
 	 
-	        return (ceil >= input) ? ceil : node.data;
+	        return (ceil >= input) ? ceil : node.val;
 	    }
 
 	 static int Ceil2(TreeNode node, int input)
@@ -55,21 +55,21 @@ public class BSTceil {
 	        }
 	 
 	        // We found equal key
-	        if (node.data == input) {
-	            return node.data;
+	        if (node.val == input) {
+	            return node.val;
 	        }
 	 
 	        // If root's key is smaller,
 	        // ceil must be in right subtree
-	        if (node.data < input) {
-	            return Ceil(node.Right, input);
+	        if (node.val < input) {
+	            return Ceil(node.right, input);
 	        }
 	 
 	        // Else, either left subtree or root
 	        // has the ceil value
-	        int tmp  = Ceil(node.Left, input);
+	        int tmp  = Ceil(node.left, input);
 	 
-	        return (tmp == -1 ) ? node.data :tmp;
+	        return (tmp == -1 ) ? node.val :tmp;
 	    }
 	 
 	
@@ -82,14 +82,14 @@ public class BSTceil {
 		while(! q.isEmpty())
 		{
 			TreeNode tmp= q.remove();
-			System.out.println(tmp.data);
-			if(tmp.Left != null)
+			System.out.println(tmp.val);
+			if(tmp.left != null)
 			{
-				q.add(tmp.Left);
+				q.add(tmp.left);
 			}
-			if(tmp.Right!=null)
+			if(tmp.right!=null)
 			{
-				q.add(tmp.Right);
+				q.add(tmp.right);
 			}
 		}
 	}

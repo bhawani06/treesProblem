@@ -37,8 +37,8 @@ public class BuildBinaryTree {
 			}
 		}
 		
-		root.Left= buildBinaryTreePost(po, io, ps, ps-is+k-1, is, k-1);
-		root.Right = buildBinaryTreePost(po, io, pe-ie+k, pe-1, k+1, ie);
+		root.left= buildBinaryTreePost(po, io, ps, ps-is+k-1, is, k-1);
+		root.right = buildBinaryTreePost(po, io, pe-ie+k, pe-1, k+1, ie);
 		return root;
 	}
 
@@ -60,8 +60,8 @@ public class BuildBinaryTree {
 			}
 		}
 		
-		root.Left = buildBinaryTreePre(po, io, ps+1, ps+k-is, is, k-1);
-		root.Right = buildBinaryTreePre(po, io, pe-(ie-k)+1, pe, k+1, ie);
+		root.left = buildBinaryTreePre(po, io, ps+1, ps+k-is, is, k-1);
+		root.right = buildBinaryTreePre(po, io, pe-(ie-k)+1, pe, k+1, ie);
 		return root;
 	}
 
@@ -74,14 +74,14 @@ public class BuildBinaryTree {
 		while(! q.isEmpty())
 		{
 			TreeNode tmp= q.remove();
-			System.out.println(tmp.data);
-			if(tmp.Left != null)
+			System.out.println(tmp.val);
+			if(tmp.left != null)
 			{
-				q.add(tmp.Left);
+				q.add(tmp.left);
 			}
-			if(tmp.Right!=null)
+			if(tmp.right!=null)
 			{
-				q.add(tmp.Right);
+				q.add(tmp.right);
 			}
 		}
 	}

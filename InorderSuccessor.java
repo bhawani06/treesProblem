@@ -5,15 +5,15 @@ public class InorderSuccessor {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		TreeNode root = new TreeNode(25);
-        root.Left = new TreeNode(12);
-        root.Right = new TreeNode(36);
-        root.Left.Left = new TreeNode(10);
-        root.Left.Right = new TreeNode(15);
-        root.Right.Left = new TreeNode(30);
+        root.left = new TreeNode(12);
+        root.right = new TreeNode(36);
+        root.left.left = new TreeNode(10);
+        root.left.right = new TreeNode(15);
+        root.right.left = new TreeNode(30);
   
         // convert to DLL
         TreeNode res =inorderSucc(root,new TreeNode(36));
-        System.out.println(res.data);
+        System.out.println(res.val);
 	}
 
 	private static TreeNode inorderSucc(TreeNode root,TreeNode p) {
@@ -22,11 +22,11 @@ public class InorderSuccessor {
 		{
 			return null;
 		}
-		if(root.data <= p.data)
+		if(root.val <= p.val)
 		{
-			return	inorderSucc(root.Right, p);
+			return	inorderSucc(root.right, p);
 		}
-		TreeNode temp = inorderSucc(root.Left, p);
+		TreeNode temp = inorderSucc(root.left, p);
 		if(temp!=null)	
 		{
 			return temp;

@@ -13,12 +13,12 @@ public class MaxInTree {
 		TreeNode a4 = new TreeNode(5);
 		TreeNode a5 = new TreeNode(6);
 		TreeNode a6 = new TreeNode(7);
-		root.Left = a1;
-		root.Right = a2;
-		a1.Left = a3;
-		a1.Right = a4;
-		a2.Left = a5;
-		a2.Right = a6;
+		root.left = a1;
+		root.right = a2;
+		a1.left = a3;
+		a1.right = a4;
+		a2.left = a5;
+		a2.right = a6;
 
 		//int max = findMaxInTree(root);
 		int max = findMaxInTreeLevelOrder(root);
@@ -38,17 +38,17 @@ public class MaxInTree {
 		while(!q.isEmpty())
 		{
 			root = q.remove();
-			if(root.data > max)
+			if(root.val > max)
 			{
-				max = root.data;
+				max = root.val;
 			}
-			if(root.Left!=null)
+			if(root.left!=null)
 			{
-				q.add(root.Left);
+				q.add(root.left);
 			}
-			if(root.Right!=null)
+			if(root.right!=null)
 			{
-				q.add(root.Right);
+				q.add(root.right);
 			}
 		}
 		return max;
@@ -60,10 +60,10 @@ public class MaxInTree {
 		
 		if(root != null)
 		{
-			int leftmax = findMaxInTree(root.Left);
-			int rightmax = findMaxInTree(root.Right);
+			int leftmax = findMaxInTree(root.left);
+			int rightmax = findMaxInTree(root.right);
 			int maxchild = (leftmax > rightmax) ? leftmax:rightmax;
-			max = (maxchild > root.data) ? maxchild:root.data;
+			max = (maxchild > root.val) ? maxchild:root.val;
 		}
 		return max;
 	}
